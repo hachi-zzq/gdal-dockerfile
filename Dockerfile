@@ -1,19 +1,10 @@
-FROM zhuzhengqian123/python3-supervisord:latest
+FROM continuumio/miniconda3
 
 
+RUN onda update -y --all\
+    && conda install -y gdal --force-reinstall
 
 
+RUN python -c 'from osgeo import gdal; print(dir(gdal))'
 
 
-
-
-
-RUN apt-get install -y libgdal-dev
-
-COPY requirements.txt /app
-
-WORKDIR /app
-
-RUN pip install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}')
-
-RUN pip install -r requirements.txt
