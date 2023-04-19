@@ -10,5 +10,5 @@ COPY requirements.txt /app
 
 WORKDIR /app
 
-RUN conda install --file requirements.txt
+RUN pip install -r requirements.txt
 
