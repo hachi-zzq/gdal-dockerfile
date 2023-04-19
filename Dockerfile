@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
 
-RUN onda update -y --all\
+RUN conda update -y --all\
     && conda install -y gdal --force-reinstall
 
 
